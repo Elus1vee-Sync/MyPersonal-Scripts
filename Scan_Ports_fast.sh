@@ -1,5 +1,16 @@
 #!/bin/bash
 
+## This script is intended and designed primarily for when you are pivoting or are on a local network from another computer.
+
+##| Feature                              |
+##| ------------------------------------ |
+##| ✅ Hybrid Host Discovery (ICMP + ARP) |
+##| ✅ Concurrent Port Scanning           |
+##| ✅ TTL OS Fingerprinting              |
+##| ✅ Professional Summary + Colors      |
+##| ✅ Modular Bash Architecture          |
+
+
 TARGET="$1"
 
 alive_hosts=()
