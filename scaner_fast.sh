@@ -31,7 +31,31 @@ THREADS=1000
 ## 0.5 NORMAL LAN
 ## 1.0 WAN
 
-TIMEOUT=0.3
+TIMEOUT=1.5
+
+########################################
+# BANNER
+########################################
+
+banner() {
+
+    echo -e "${CYAN}"
+
+    cat << "EOF"
+╔══════════════════════════════════════════════╗
+║            FAST NETWORK SCANNER             ║
+╚══════════════════════════════════════════════╝
+EOF
+
+    echo -e "${RESET}"
+
+    echo -e "${GREEN}[*] High Performance TCP Scanner${RESET}"
+    echo -e "${YELLOW}[*] GitHub:${RESET} https://github.com/Elus1vee-Sync/"
+    echo -e "${MAGENTA}[*] Threads:${RESET} ${CYAN}$THREADS${RESET}"
+    echo -e "${MAGENTA}[*] Timeout:${RESET} ${CYAN}$TIMEOUT${RESET}"
+
+    echo
+}
 
 ########################################
 # OS DETECTION
@@ -192,7 +216,6 @@ scan_ports() {
         echo -e "${GREEN}[+]${RESET} ${CYAN}$IP${RESET}:${RED}$PORT${RESET} OPEN"
 
         open_ports["$IP"]+="$PORT "
-
     done < "$TMP_FILE"
 
     rm -f "$TMP_FILE"
@@ -205,6 +228,8 @@ scan_ports() {
 ########################################
 # MAIN
 ########################################
+
+banner
 
 if [[ -z "$TARGET" ]]; then
 
